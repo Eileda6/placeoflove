@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Galerie de Vidéos</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <h1>Petites Vidéos de place of love ❤️🎬</h1>
+  </header>
+
+  <main>
+    <div class="video-gallery">
+      <!-- Chaque bloc vidéo avec son titre -->
+      <div class="video-card">
+        <video class="video-thumb" src="videos/video1.mp4"></video>
+        <p class="video-title">La beauté de la distance</p>
+      </div>
+
+      <div class="video-card">
+        <video class="video-thumb" src="videos/video2.mp4"></video>
+        <p class="video-title">I love you</p>
+      </div>
+
+      <div class="video-card">
+        <video class="video-thumb" src="videos/video3.mp4"></video>
+        <p class="video-title">Two hearts one love</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Fenêtre modale -->
+  <div id="videoModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <h2 id="modalTitle"></h2>
+      <video id="modalVideo" controls autoplay></video>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
