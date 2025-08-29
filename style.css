@@ -1,0 +1,155 @@
+/* Fond et polices */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffe6f0;
+  color: #9a1c46;
+  margin: 0;
+  padding: 0;
+}
+
+/* Bouton menu */
+#menuBtn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Sidebar */
+#sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #cc3366;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  
+}
+
+#sidebar a {
+  display: block;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  transition: 0.2s;
+}
+
+#sidebar a:hover {
+  background-color: #ff99cc;
+}
+
+/* Contenu */
+main {
+  margin: 60px auto;
+  text-align: center;
+  padding: 20px;
+}
+
+/* --- Galerie vidéo --- */
+.video-gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-thumb {
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.video-thumb:hover {
+  transform: scale(1.05);
+}
+
+.video-title {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #cc3366; /* même rose foncé que le texte d'accueil */
+}
+
+/* --- Modale vidéo --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  margin: 5% auto;
+  max-width: 80%;
+  color: white;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+}
+
+.modal-content video {
+  width: 100%;
+  max-height: 70vh;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+.close:hover {
+  color: #ff99cc;
+}
+
+main p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 20px auto;
+  text-align: justify;
+  color: #cc3366; /* rose foncé */
+}
+
+main ul {
+  list-style: "🌸 "; /* emoji puce */
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  padding-left: 20px;
+  color: #cc3366; /* liste aussi en rose foncé */
+}
+
+
+/* Modale vidéo : textes en blanc */
+.modal-content h2 {
+  color: white;
+}
+
+

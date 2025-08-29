@@ -3,43 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ma Galerie de Vidéos</title>
-  <link rel="stylesheet" href="index.css">
+  <title>Accueil</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Petites Vidéos de place of love ❤️🎬</h1>
-  </header>
+  <!-- Bouton menu -->
+  <div id="menuBtn">☰</div>
 
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <a href="index.html">🏠 Accueil</a>
+    <a href="videos.html">🎬 Vidéos</a>
+    <a href="#">📞 Contact</a>
+  </nav>
+
+  <!-- Contenu principal -->
   <main>
-    <div class="video-gallery">
-      <!-- Chaque bloc vidéo avec son titre -->
-      <div class="video-card">
-        <video class="video-thumb" src="videos/video1.mp4"></video>
-        <p class="video-title">La beauté de la distance</p>
-      </div>
+    <h1>Bienvenue sur le site: Place of love 🌸</h1>
+    <p>Ceci est la page d’accueil. Dans ce site tu y trouveras :</p>
 
-      <div class="video-card">
-        <video class="video-thumb" src="videos/video2.mp4"></video>
-        <p class="video-title">I love you</p>
-      </div>
+<ul>
+  <li>des vidéos</li>
+  <li>des jeux (disponible prochainement)</li>
+  <li>des casses-têtes (disponible prochainement)</li>
+  <li>et beaucoup d'autres choses !</li>
+</ul>
 
-      <div class="video-card">
-        <video class="video-thumb" src="videos/video3.mp4"></video>
-        <p class="video-title">Two hearts one love</p>
-      </div>
-    </div>
+<p>
+  Cette page a été créée pour t'accompagner dans cette période difficile. <br>
+  Ici, tu ne seras pas en manque d'amour, ce site doit être comme un petit cocon de réconfort. <br>
+  Amuse-toi bien et prépare-toi à vivre une expérience inoubliable !
+</p>
+
   </main>
 
-  <!-- Fenêtre modale -->
-  <div id="videoModal" class="modal">
-    <span class="close">&times;</span>
-    <div class="modal-content">
-      <h2 id="modalTitle"></h2>
-      <video id="modalVideo" controls autoplay></video>
-    </div>
-  </div>
-
-  <script src="index.js"></script>
+  <script src="menu.js"></script>
 </body>
 </html>
