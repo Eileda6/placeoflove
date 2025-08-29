@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jeu de Memory</title>
+  <link rel="stylesheet" href="memory-style.css">
+</head>
+<body>
+  <h1>🧠 Jeu de Memory</h1>
+  <p>Coups : <span id="score">0</span></p>
+
+  <!-- Bouton Annuler -->
+  <button id="cancelBtn" onclick="window.location.href='../../jeux.html'">
+  Annuler / Revenir aux Jeux
+</button>
+
+
+  <div id="playerInfo">
+    <label for="playerName">Pseudo :</label>
+    <input type="text" id="playerName" placeholder="Ton nom">
+  </div>
+
+  <div class="game-board" id="gameBoard"></div>
+
+  <div id="winScreen" class="win-screen hidden">
+    <h2>🎉 Bravo ! Tu as gagné !</h2>
+    <p>Tu as terminé en <span id="finalScore">0</span> coups !</p>
+    <button onclick="restartGame()">Rejouer</button>
+    <button id="cancelBtn" onclick="window.location.href='../../jeux.html'">Revenir aux Jeux</button>
+
+  </div>
+
+  <script src="memory-script.js"></script>
+</body>
+</html>
