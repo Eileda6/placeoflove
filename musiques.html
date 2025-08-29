@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Énigmes</title>
+  <title>Musiques</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,11 +22,30 @@
 
   <!-- Contenu principal -->
   <main>
-    <h1>🧩 Énigmes</h1>
-    <p>Bienvenue dans la section énigmes !  
-    Ici tu trouveras bientôt des casse-têtes, des quiz et des défis pour stimuler ton esprit ✨</p>
+    <h1>🎵 Musiques</h1>
+    <div class="music-gallery">
+
+      <!-- Exemple de musique -->
+      <div class="music-card">
+        <p class="music-title">Musique 1</p>
+        <audio controls>
+          <source src="musiques/musique1.mp3" type="audio/mpeg">
+          Ton navigateur ne supporte pas l’audio.
+        </audio>
+      </div>
+
+      <div class="music-card">
+        <p class="music-title">Musique 2</p>
+        <audio controls>
+          <source src="musiques/musique2.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- Tu peux en ajouter autant que tu veux -->
+    </div>
   </main>
 
   <script src="menu.js"></script>
 </body>
 </html>
+

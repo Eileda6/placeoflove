@@ -205,3 +205,23 @@ main ul {
 }
 
 
+.music-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.music-card {
+  background: #ffe6f0; /* rose pâle */
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.music-title {
+  color: #c2185b; /* rose foncé */
+  font-weight: bold;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "titre": "Skribbl.io",
+    "url": "https://skribbl.io/",
+    "description": "Un jeu de dessin multijoueur amusant 🎨"
+  },
+  {
+    "titre": "Gartic Phone",
+    "url": "https://garticphone.com/",
+    "description": "Un téléphone arabe en dessins 😂"
+  },
+  {
+    "titre": "Lichess",
+    "url": "https://lichess.org/",
+    "description": "Pour jouer aux échecs en ligne ♟️"
+  },
+  {
+    "titre": "Jeux France info",
+    "url": "https://jeux.franceinfo.fr/mots-fleches/",
+    "description": "Pour jouer aux mots fléchés ✏️"
+  },
+  {
+    "titre": "Raetsel",
+    "url": "https://raetsel.ch/fr/demo-en-ligne-mots-fleches-multijoueurs/",
+    "description": "Pour jouer aux mots fléchés en multijoueurs ✏️"
+  },
+  {
+    "titre": "Mots Croisés (Crossword Labs)",
+    "url": "https://crosswordlabs.com/",
+    "description": "Créer et résoudre des grilles de mots croisés 🔤"
+  },
+  {
+    "titre": "Sudoku en ligne",
+    "url": "https://sudoku.com/fr",
+    "description": "Joue au Sudoku directement en ligne 🔢"
+  },
+  {
+    "titre": "Sutom",
+    "url": "https://sutom.nocle.fr/",
+    "description": "La version française de Wordle 🇫🇷"
+  },
+  {
+    "titre": "flockmod",
+    "url": "https://flockmod.com/r/fallback32",
+    "description": "Dessiner ensemble sur la même page"
+  }
+]
