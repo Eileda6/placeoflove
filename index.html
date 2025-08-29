@@ -5,8 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Cœurs flottants */
+    #hearts-container {
+      position: fixed;
+      top: 0;  /* couvre tout l'écran */
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 9999;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: #ff4d6d;
+      bottom: 0; /* point de départ en bas */
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-600px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Conteneur des cœurs -->
+  <div id="hearts-container"></div>
+
   <!-- Bouton menu -->
   <div id="menuBtn">☰</div>
 
@@ -27,7 +62,7 @@
     </p>
     <ul>
       <li>des vidéos</li>
-      <li>des jeux (disponibles prochainement)</li>
+      <li>des jeux </li>
       <li>des énigmes (disponibles prochainement)</li>
       <li>et beaucoup d'autres choses !</li>
     </ul>
@@ -38,6 +73,31 @@
     </p>
   </main>
 
+  <!-- Scripts -->
   <script src="menu.js"></script>
+  <script>
+    // Cœurs flottants
+    const container = document.getElementById('hearts-container');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+
+      // Position horizontale aléatoire
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+
+      // Durée de l'animation aléatoire pour plus de naturel
+      const duration = Math.random() * 12 + 14; // 4 à 8 secondes
+      heart.style.animationDuration = duration + 's';
+
+      container.appendChild(heart);
+
+      setTimeout(() => heart.remove(), duration * 1000);
+    }
+
+    // Crée un cœur toutes les 400ms
+    setInterval(createHeart, 1000);
+  </script>
 </body>
 </html>
