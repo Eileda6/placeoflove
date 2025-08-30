@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 Jeu des Cœurs</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #ffe6f0; /* fond rose uni */
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #menuBtn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      z-index: 1000; /* au-dessus des cœurs */
+      cursor: pointer;
+    }
+
+    #sidebar {
+      z-index: 1000; /* au-dessus des cœurs */
+    }
+
+    #topBar {
+      position: absolute;
+      top: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      font-size: 24px;
+      font-weight: bold;
+      z-index: 900;
+    }
+
+    #score, #timer {
+      background: white;
+      padding: 5px 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      color: #e60073;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      cursor: pointer;
+      animation: rise linear forwards;
+      z-index: 1; /* derrière le menu */
+    }
+
+    @keyframes rise {
+      from { transform: translateY(100vh) scale(1); opacity: 1; }
+      to { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    .pop {
+      animation: pop 0.3s forwards;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    #endMessage {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      font-weight: bold;
+      color: #e60073;
+      display: none;
+      z-index: 950;
+    }
+
+    #replayBtn {
+      display: none;
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      padding: 10px 20px;
+      background: #e60073;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 950;
+    }
+  </style>
+</head>
+<link rel="stylesheet" href="../../style.css">
+<body>
+  <!-- Bouton menu -->
+  <div id="menuBtn">☰</div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <a href="../../index.html">🏠 Accueil</a>
+    <a href="../../videos.html">🎬 Vidéos</a>
+    <a href="../../jeux.html">🎮 Jeux</a>
+    <a href="../../musiques.html">🎵 Musiques</a>
+    <a href="../../liens.html">🌍 Liens</a>
+  </nav>
+
+  <div id="topBar">
+    <div id="score">💖 Score : 0</div>
+    <div id="timer">⏳ Temps : 30</div>
+  </div>
+
+  <div id="endMessage">Je t'aime ! ❤️</div>
+  <button id="replayBtn">🔄 Rejouer</button>
+
+  <script>
+    let score = 0;
+    let timeLeft = 30;
+    let gameActive = true;
+    let heartInterval, timerInterval;
+    const hearts = ["❤️","🧡","💛","💚","💙","💜","🖤","🤍","🤎"];
+
+    function spawnHeart() {
+      if (!gameActive) return;
+
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+      
+      heart.style.left = Math.random() * (window.innerWidth - 50) + "px";
+      
+      // Durée d'animation plus lente (6 à 10 sec)
+      const duration = 6 + Math.random() * 4;
+      heart.style.animationDuration = duration + "s";
+      
+      document.body.appendChild(heart);
+
+      heart.addEventListener("click", () => {
+        if (!gameActive) return;
+        score++;
+        document.getElementById("score").textContent = "💖 Score : " + score;
+        heart.classList.add("pop");
+        setTimeout(() => heart.remove(), 300);
+      });
+
+      setTimeout(() => heart.remove(), duration * 1000);
+    }
+
+    function startGame() {
+      score = 0;
+      timeLeft = 30;
+      gameActive = true;
+      document.getElementById("score").textContent = "💖 Score : " + score;
+      document.getElementById("timer").textContent = "⏳ Temps : " + timeLeft;
+      document.getElementById("endMessage").style.display = "none";
+      document.getElementById("replayBtn").style.display = "none";
+
+      heartInterval = setInterval(spawnHeart, 1000);
+      timerInterval = setInterval(() => {
+        if (timeLeft > 0) {
+          timeLeft--;
+          document.getElementById("timer").textContent = "⏳ Temps : " + timeLeft;
+        } else {
+          endGame();
+        }
+      }, 1000);
+    }
+
+    function endGame() {
+      gameActive = false;
+      clearInterval(timerInterval);
+      clearInterval(heartInterval);
+      document.getElementById("endMessage").style.display = "block";
+      document.getElementById("replayBtn").style.display = "inline-block";
+    }
+
+    document.getElementById("replayBtn").addEventListener("click", startGame);
+
+    // Lancer le jeu au chargement
+    startGame();
+  </script>
+  <script src="../../menu.js"></script>
+</body>
+</html>
