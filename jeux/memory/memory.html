@@ -3,17 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <title>Jeu de Memory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="memory-style.css">
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
+  <!-- Bouton menu -->
+  <div id="menuBtn">☰</div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <a href="../../index.html">🏠 Accueil</a>
+    <a href="../../videos.html">🎬 Vidéos</a>
+    <a href="../../jeux.html">🎮 Jeux</a>
+    <a href="../../musiques.html">🎵 Musiques</a>
+    <a href="../../liens.html">🌍 Liens</a>
+  </nav>
+
   <h1>🧠 Jeu de Memory</h1>
   <p>Coups : <span id="score">0</span></p>
 
   <!-- Bouton Annuler -->
-  <button id="cancelBtn" onclick="window.location.href='../../jeux.html'">
-  Annuler / Revenir aux Jeux
-</button>
-
+  <button id="cancelBtnTop" onclick="window.location.href='../../jeux.html'">
+    Annuler / Revenir aux Jeux
+  </button>
 
   <div id="playerInfo">
     <label for="playerName">Pseudo :</label>
@@ -26,10 +41,11 @@
     <h2>🎉 Bravo ! Tu as gagné !</h2>
     <p>Tu as terminé en <span id="finalScore">0</span> coups !</p>
     <button onclick="restartGame()">Rejouer</button>
-    <button id="cancelBtn" onclick="window.location.href='../../jeux.html'">Revenir aux Jeux</button>
-
+    <button id="cancelBtnWin" onclick="window.location.href='../../jeux.html'">Revenir aux Jeux</button>
   </div>
 
+  <!-- Scripts : charge d'abord le menu, puis le jeu -->
+  <script src="../../menu.js"></script>
   <script src="memory-script.js"></script>
 </body>
 </html>

@@ -15,33 +15,40 @@
     <a href="index.html">🏠 Accueil</a>
     <a href="videos.html">🎬 Vidéos</a>
     <a href="jeux.html">🎮 Jeux</a>
-    <a href="enigmes.html">🧩 Énigmes</a>
     <a href="musiques.html">🎵 Musiques</a>
     <a href="liens.html">🌍 Liens</a>
-    <a href="#">📞 Contact</a>
   </nav>
 
   <!-- Contenu principal -->
   <main>
     <h1>🎮 Jeux</h1>
 
-        <div class="game-gallery">
-        <div class="game-card" style="background-color: #ff9999;">
+    <!-- Un seul container pour TOUS les jeux -->
+    <div class="game-gallery">
+
+      <div class="game-card" style="background-color: #ff9999;">
         <p class="game-title">Memory</p>
         <a href="jeux/memory/memory.html" class="play-btn">Jouer</a>
-        </div>
+      </div>
 
-        <div class="game-card" style="background-color: #ffcc99;">
+      <div class="game-card" style="background-color: #99ffb4;">
+        <p class="game-title">Labyrinthe</p>
+        <a href="jeux/labyrinthe/labyrinthe.html" class="play-btn">Jouer</a>
+      </div>
+
+      <div class="game-card" style="background-color: #99ccff;">
+        <p class="game-title">Énigme</p>
+        <a href="jeux/enigmes/enigmes.html" class="play-btn">Jouer</a>
+      </div>
+
+      <div class="game-card" style="background-color: #ffcc99;">
         <p class="game-title">Autre jeu</p>
         <a href="jeux/autrejeu/index.html" class="play-btn">Jouer</a>
-        </div>
+      </div>
 
-        <div class="game-card" style="background-color: #99ccff;">
-        <p class="game-title">Énigme</p>
-        <a href="jeux/enigmes.html" class="play-btn">Jouer</a>
-        </div>
-        </div>
+      
 
+    </div>
   </main>
 
   <script src="menu.js"></script>

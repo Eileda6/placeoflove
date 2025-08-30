@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const symbols = ['🍎','🍌','🍇','🍓','🍉','🍒','🍍','🥝'];
 let cards = [...symbols, ...symbols]; // 2x chaque symbole
 let revealedCards = [];
@@ -85,3 +86,4 @@ function restartGame() {
   shuffle(cards);
   createCards();
 }
+});

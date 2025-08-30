@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu de Labyrinthe</title>
+  <link rel="stylesheet" href="style.css"> <!-- tu peux réutiliser ton style général -->
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f4f4f9;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .labyrinthe {
+      display: grid;
+      grid-template-columns: repeat(10, 40px);
+      grid-template-rows: repeat(9, 40px);
+      gap: 2px;
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #ccc;
+    }
+
+    .mur {
+      background: black;
+    }
+
+    .player {
+      background: red;
+    }
+
+    .sortie {
+      background: limegreen;
+    }
+  </style>
+
+
+</head>
+  <link rel="stylesheet" href="../../style.css">
+<body>
+  <!-- Bouton menu -->
+  <div id="menuBtn">☰</div>
+
+  <nav id="sidebar">
+    <a href="../../index.html">🏠 Accueil</a>
+    <a href="../../videos.html">🎬 Vidéos</a>
+    <a href="../../jeux.html">🎮 Jeux</a>
+    <a href="../../musiques.html">🎵 Musiques</a>
+    <a href="../../liens.html">🌍 Liens</a>
+  </nav>
+
+
+  <main>
+    <h1>🎮 Jeu du Labyrinthe</h1>
+    <p>Déplace le carré rouge avec les flèches ⬆️⬇️⬅️➡️ et trouve la sortie verte !</p>
+    <div class="labyrinthe" id="labyrinthe"></div>
+  </main>
+
+  <script src="menu.js"></script>
+  <script>
+    // Carte du labyrinthe (0 = vide, 1 = mur, 2 = sortie)
+    const map = [
+      [1,1,1,1,1,1,1,1,1,1],
+      [1,0,0,0,0,0,1,0,0,1],
+      [1,0,1,1,1,0,1,0,1,1],
+      [1,0,0,0,1,0,0,0,0,1],
+      [1,1,1,0,1,1,1,1,0,1],
+      [1,0,0,0,0,0,0,1,0,1],
+      [1,0,1,1,1,1,0,1,0,1],
+      [1,0,0,0,0,0,0,1,0,2],
+      [1,1,1,1,1,1,1,1,1,1]
+    ];
+
+    const labyrinthe = document.getElementById("labyrinthe");
+
+    let playerPos = {x: 1, y: 1}; // Position de départ
+
+    function render() {
+      labyrinthe.innerHTML = "";
+      map.forEach((row, y) => {
+        row.forEach((cell, x) => {
+          const div = document.createElement("div");
+          div.classList.add("cell");
+          if (cell === 1) div.classList.add("mur");
+          if (cell === 2) div.classList.add("sortie");
+          if (playerPos.x === x && playerPos.y === y) div.classList.add("player");
+          labyrinthe.appendChild(div);
+        });
+      });
+    }
+
+    function move(dx, dy) {
+      const newX = playerPos.x + dx;
+      const newY = playerPos.y + dy;
+      if (map[newY][newX] !== 1) {
+        playerPos = {x: newX, y: newY};
+        if (map[newY][newX] === 2) {
+          setTimeout(() => alert("🎉 Bravo, tu as trouvé la sortie !"), 100);
+        }
+        render();
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowUp") move(0, -1);
+      if (e.key === "ArrowDown") move(0, 1);
+      if (e.key === "ArrowLeft") move(-1, 0);
+      if (e.key === "ArrowRight") move(1, 0);
+    });
+
+    render();
+  </script>
+  <script src="../../menu.js"></script>
+</body>
+</html>
